@@ -34,14 +34,11 @@ public class Main {
                 System.out.print("\n");
 
                 // Get the user's food selection
-                int selectedFoodId = getIntInputRange(
-                        1,
-                        searchResults.size())
-                        - 1;
+                int selectedFoodId = getIntInputRange(1, searchResults.size()) - 1;
 
                 Food fd = searchResults.get(selectedFoodId);
                 fd.initializeLists();
-                ShowNutrients(fd);
+                ShowNutrients(fd, MAX_NUM_ATTRIBUTES_PER_PAGE);
 
             } else {
                 System.out.println(DASH_LINE + "\nThe search for " + userFoodSearchQuery + " produced no results");
@@ -64,7 +61,7 @@ public class Main {
     }
 
     // Show all nutrients for a single food
-    public static void ShowNutrients(Food fd) {
+    public static void ShowAllNutrients(Food fd) {
         ShowNutrients(fd, fd.getNutrientValListSize());
     }
 
